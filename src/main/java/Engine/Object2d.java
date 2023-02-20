@@ -17,10 +17,16 @@ public class Object2d extends ShaderProgram{
     List<Vector3f> vertices;
     int vao;
     int vbo;
+
+    Vector4f color;
+    UniformsMap uniformsMap;
     public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices) {
         super(shaderModuleDataList);
         this.vertices = vertices;
         setupVAOVBO();
+        this.color = color;
+        uniformsMap = new UniformsMap(getProgramId());
+
     }
     public void setupVAOVBO(){
         vao=glGenVertexArrays();
