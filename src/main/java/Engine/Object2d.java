@@ -27,11 +27,11 @@ public class Object2d extends ShaderProgram{
     public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-        setupVAOVBO();
+
         this.color = color;
         uniformsMap = new UniformsMap(getProgramId());
         uniformsMap.createUniform("uni_color");
-
+        setupVAOVBO();
     }
     public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, List<Vector3f> verticesColor) {
         super(shaderModuleDataList);
