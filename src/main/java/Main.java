@@ -2,6 +2,7 @@ import Engine.Object2d;
 import Engine.ShaderProgram;
 import Engine.Window;
 import org.joml.Vector3f;
+import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
 import java.util.ArrayList;
@@ -33,9 +34,9 @@ public class Main {
         objects.add(new Object2d(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData(
-                                "resources/shaders/scene.vert"
+                                "resources/shaders/scenewithVerticesColor.vert"
                                 , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scenewithVerticesColor.frag", GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(
                         List.of(
@@ -43,18 +44,24 @@ public class Main {
                                 new Vector3f(-0.5f, -0.5f, 0.0f),
                                 new Vector3f(0.5f, -0.5f, 0.0f)
                         )
+                ),  new ArrayList<>(
+                List.of(
+                        new Vector3f(1.0f, 0.0f, 0.0f),
+                        new Vector3f(0.0f, 1.0f, 0.0f),
+                        new Vector3f(0.0f, 0.0f, 1.0f)
                 )
+        )
         ));
     }
 
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            glClearColor(0.1f,0.6f,0.0f,0.0f);
+            glClearColor(0.0f,0.0f,0.0f,0.0f);
             GL.createCapabilities();
 
             for (Object2d object : objects) {
-                object.draw();
+                object.drawwithVerticesColor();
             }
             glDisableVertexAttribArray(0);
             glfwPollEvents();
