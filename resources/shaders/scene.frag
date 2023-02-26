@@ -5,5 +5,10 @@ uniform vec4 uni_color;
 //position variable bisa diubah ubah
 
 void main() {
+    //untuk segitiga
+//    vec4(red,green,blue,alpha)
+//    rgba -> red 100/255
+//    fragColor = vec4(1.0,0.0,0.0,1.0);
+//    untuk segitiga warna campur
     frag_color = uni_color;
 }
