@@ -45,7 +45,7 @@ public class Star extends Rectangle
     @Override
     public void draw()
     {
-        drawSetup();
+//        drawSetup();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
         glDrawElements(GL_LINES, index.size(), GL_UNSIGNED_INT, 0);
     }
